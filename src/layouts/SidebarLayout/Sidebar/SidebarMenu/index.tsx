@@ -193,6 +193,18 @@ function SidebarMenu() {
         >
           <SubMenuWrapper>
             <List component="div">
+            <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/categories"
+                  startIcon={<TableChartTwoToneIcon />}
+                >
+                  Categories List
+                </Button>
+              </ListItem>
+
               <ListItem component="div">
                 <Button
                   disableRipple

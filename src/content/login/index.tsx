@@ -21,17 +21,17 @@ import { useAuth } from 'src/contexts/AuthContext';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { sginin, token } = useAuth(); // Consolidate useAuth usage
+  const { signin, token } = useAuth(); // Consolidate useAuth usage
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    sginin(email, password);
+    signin(email, password);
   };
 
   // Redirect if token exists
   if (token) {
-    console.log(token);
-    return <Navigate to="/dashboards" replace />;
+    console.log(token); // This line will NOT execute if token is null
+    return <Navigate to="/dashboards" replace />; // This line will NOT execute if token is null
   }
 
   return (

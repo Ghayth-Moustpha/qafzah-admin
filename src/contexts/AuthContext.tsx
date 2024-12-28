@@ -5,39 +5,67 @@ import IUser from 'src/interfaces/user.interface';
 interface AuthContextType {
   user: IUser | null;
   token: string | null;
-  sginin: (email: string, password: string) => Promise<void>;
+  signin: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  API : string ,
 }
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Create a provider component
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser ]= useState<IUser  | null>(null);
-  const [token, setToken] = useState<string | null>( localStorage.getItem('token'));
+  // Initialize user state from localStorage
+  const storedUser = localStorage.getItem('user');
+  const initialUser = storedUser ? JSON.parse(storedUser) : null;
 
+  const [user, setUser] = useState<IUser | null>(initialUser);
+  const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+  const API = "https://api.qafzatech.com"; 
+  // Effect to update state if localStorage changes
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
 
+    if (storedToken) {
+      setToken(storedToken);
+    } else {
+      setToken(null);
+    }
 
-  const sginin = async (email: string, password: string) => {
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); // Parse user data from localStorage
+    } else {
+      setUser(null);
+    }
+  }, []);
+
+  const signin = async (email: string, password: string) => {
     const response = await axiosInstance.post('/auth/login', { email, password });
     const { user } = response.data; 
-    console.log(user) ; 
-    setUser(user) ; 
-    console.log(response.data.token) ; 
-    if (user.role != "Admin" ) 
-      setToken(null)
-    else 
-    setToken(response.data.token) ; 
-    localStorage.setItem('token', token); // Store the token
+    const newToken = response.data.token;
 
+    if (user.role !== "Admin") {
+      setToken(null);
+      setUser(null);
+      localStorage.removeItem('token'); // Remove token if user is not admin
+      localStorage.removeItem('user'); // Remove user data if not admin
+    } else {
+      setUser(user); 
+      setToken(newToken); 
+      localStorage.setItem('token', newToken); // Store the token
+      localStorage.setItem('user', JSON.stringify(user)); // Store user data
+    }
   };
 
   const logout = () => {
+    setUser(null); // Clear user on logout
     setToken(null);
     localStorage.removeItem('token'); // Remove the token
+    localStorage.removeItem('user'); // Remove user data
   };
 
   return (
-    <AuthContext.Provider value={{  user, token, sginin, logout }}>
+    <AuthContext.Provider value={{ API , user, token, signin, logout }}>
       {children}
     </AuthContext.Provider>
   );

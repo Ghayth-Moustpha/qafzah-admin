@@ -8,6 +8,9 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import SuspenseLoader from 'src/components/SuspenseLoader';
 import Login from 'src/content/login';
 import CoursesPage from './content/applications/courses';
+import CategoryPage from './content/applications/category/CategoryPage';
+import CreateCategoryPage from './content/applications/category/CreateCategory';
+import EditCategory from './content/applications/category/EditeCategory';
 
 const Loader = (Component) => (props) =>
   (
@@ -138,6 +141,21 @@ const routes: RouteObject[] = [
       {
         path: '',
         element: <Navigate to="posts" replace />
+      },
+      ,
+      {
+        path: 'categories',
+        element: <CategoryPage />
+      },
+      ,
+      {
+        path: 'categories/add',
+        element: <CreateCategoryPage />
+      },
+      ,
+      {
+        path: 'categories/edite/:id',
+        element: <EditCategory />
       },
       {
         path: 'posts',

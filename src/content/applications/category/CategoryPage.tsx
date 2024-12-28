@@ -3,17 +3,16 @@ import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Grid, Container } from '@mui/material';
 import Footer from 'src/components/Footer';
+import CategoryTable from './CategoryTable';
 
-import RecentOrders from './RecentOrders';
-
-function CoursesPage() {
+function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>Courses </title>
+        <title>Categories</title>
       </Helmet>
       <PageTitleWrapper>
-        <PageHeader />
+        <PageHeader  />
       </PageTitleWrapper>
       <Container maxWidth="lg">
         <Grid
@@ -24,7 +23,7 @@ function CoursesPage() {
           spacing={3}
         >
           <Grid item xs={12}>
-            <RecentOrders />
+            <CategoryTable />
           </Grid>
         </Grid>
       </Container>
@@ -33,4 +32,4 @@ function CoursesPage() {
   );
 }
 
-export default CoursesPage;
+export default CategoryPage;

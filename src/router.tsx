@@ -7,10 +7,15 @@ import BaseLayout from 'src/layouts/BaseLayout';
 
 import SuspenseLoader from 'src/components/SuspenseLoader';
 import Login from 'src/content/login';
-import CoursesPage from './content/applications/courses';
 import CategoryPage from './content/applications/category/CategoryPage';
 import CreateCategoryPage from './content/applications/category/CreateCategory';
 import EditCategory from './content/applications/category/EditeCategory';
+import TeachersPage from './content/applications/Teachers/TeachersPage';
+import AddTeacher from './content/applications/Teachers/AddTeacher';
+import EditTeacher from './content/applications/Teachers/EditTeacher';
+import CoursesPage from './content/applications/Courses/CoursesPage';
+import AddCourse from './content/applications/Courses/AddCourse';
+import EditCourse from './content/applications/Courses/EditCourse';
 
 const Loader = (Component) => (props) =>
   (
@@ -154,17 +159,41 @@ const routes: RouteObject[] = [
       },
       ,
       {
-        path: 'categories/edite/:id',
-        element: <EditCategory />
+        path: 'categories/edit/:id',
+        element: <EditTeacher />
       },
       {
         path: 'posts',
         element: <Posts />
       },
+      {
+        path: 'teachers',
+        element: <TeachersPage />
+      },
+      {
+        path: 'teachers/add',
+        element: <AddTeacher />
+      },
+      
+      {
+        path: 'teachers/edit/:id',
+        element: <EditTeacher />
+      },
+      ,
       ,
       {
         path: 'courses',
         element: <CoursesPage />
+      },
+      ,
+      {
+        path: 'courses/add',
+        element: <AddCourse />
+      },
+      ,
+      {
+        path: 'courses/edit/:id',
+        element: <EditCourse />
       },
       {
         path: 'profile',

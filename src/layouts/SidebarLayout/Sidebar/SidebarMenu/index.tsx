@@ -31,7 +31,7 @@ import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwo
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import { Logout } from '@mui/icons-material';
+import { AssignmentInd, Logout } from '@mui/icons-material';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -205,6 +205,17 @@ function SidebarMenu() {
                 </Button>
               </ListItem>
 
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/teachers"
+                  startIcon={<AssignmentInd/>}
+                >
+                 Teachers
+                </Button>
+              </ListItem>
               <ListItem component="div">
                 <Button
                   disableRipple

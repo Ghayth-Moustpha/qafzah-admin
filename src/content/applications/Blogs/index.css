@@ -1,0 +1,20 @@
+.ql-align-right {
+    text-align: right !important;
+  }
+  
+  .ql-align-left {
+    text-align: left !important;
+  }
+  
+  .ql-align-center {
+    text-align: center !important;
+  }
+  
+  .ql-direction-rtl {
+    direction: rtl !important;
+  }
+  
+  .ql-direction-ltr {
+    direction: ltr !important;
+  }
+  

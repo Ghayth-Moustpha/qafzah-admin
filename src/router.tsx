@@ -16,6 +16,11 @@ import EditTeacher from './content/applications/Teachers/EditTeacher';
 import CoursesPage from './content/applications/Courses/CoursesPage';
 import AddCourse from './content/applications/Courses/AddCourse';
 import EditCourse from './content/applications/Courses/EditCourse';
+import Logout from './content/applications/Logout';
+import BlogsPage from './content/applications/Blogs/BlogsPage';
+import AddBlog from './content/applications/Blogs/AddBlog';
+import EditBlog from './content/applications/Blogs/EditBlog';
+import StudentsPage from './content/applications/Students/StudentsPage';
 
 const Loader = (Component) => (props) =>
   (
@@ -35,9 +40,7 @@ const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
 // Applications
 
 
-const Posts = Loader(
-  lazy(() => import('src/content/applications/posts'))
-);
+
 const UserProfile = Loader(
   lazy(() => import('src/content/applications/Users/profile'))
 );
@@ -45,28 +48,7 @@ const UserSettings = Loader(
   lazy(() => import('src/content/applications/Users/settings'))
 );
 
-// Components
 
-const Buttons = Loader(
-  lazy(() => import('src/content/pages/Components/Buttons'))
-);
-const Modals = Loader(
-  lazy(() => import('src/content/pages/Components/Modals'))
-);
-const Accordions = Loader(
-  lazy(() => import('src/content/pages/Components/Accordions'))
-);
-const Tabs = Loader(lazy(() => import('src/content/pages/Components/Tabs')));
-const Badges = Loader(
-  lazy(() => import('src/content/pages/Components/Badges'))
-);
-const Tooltips = Loader(
-  lazy(() => import('src/content/pages/Components/Tooltips'))
-);
-const Avatars = Loader(
-  lazy(() => import('src/content/pages/Components/Avatars'))
-);
-const Cards = Loader(lazy(() => import('src/content/pages/Components/Cards')));
 
 // Status
 
@@ -91,6 +73,10 @@ const routes: RouteObject[] = [
       {
         path: '/',
         element: <Login />
+      },
+      {
+        path: 'Logout',
+        element: <Logout/>
       },
       {
         path: 'login',
@@ -147,6 +133,7 @@ const routes: RouteObject[] = [
         path: '',
         element: <Navigate to="posts" replace />
       },
+     
       ,
       {
         path: 'categories',
@@ -160,11 +147,21 @@ const routes: RouteObject[] = [
       ,
       {
         path: 'categories/edit/:id',
-        element: <EditTeacher />
+        element: <EditCategory />
       },
       {
         path: 'posts',
-        element: <Posts />
+        element: <BlogsPage />
+      },
+      ,
+      {
+        path: 'posts/add',
+        element: <AddBlog />
+      },
+      ,
+      {
+        path: 'posts/edit/:id',
+        element: <EditBlog />
       },
       {
         path: 'teachers',
@@ -194,6 +191,11 @@ const routes: RouteObject[] = [
       {
         path: 'courses/edit/:id',
         element: <EditCourse />
+      },
+      ,
+      {
+        path: 'students',
+        element: <StudentsPage />
       },
       {
         path: 'profile',

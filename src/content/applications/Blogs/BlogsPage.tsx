@@ -3,14 +3,15 @@ import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Grid, Container } from '@mui/material';
 import Footer from 'src/components/Footer';
-import TeacherTable from './TeacherTable';
+import BlogTable from './BlogTable';
 
 
-function TeachersPage() {
+
+function BlogsPage() {
   return (
     <>
       <Helmet>
-        <title> Teachers </title>
+        <title> Posts </title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader  />
@@ -24,7 +25,7 @@ function TeachersPage() {
           spacing={3}
         >
           <Grid item xs={12}>
-            <TeacherTable />
+            <BlogTable />
           </Grid>
         </Grid>
       </Container>
@@ -33,4 +34,4 @@ function TeachersPage() {
   );
 }
 
-export default TeachersPage;
+export default BlogsPage;

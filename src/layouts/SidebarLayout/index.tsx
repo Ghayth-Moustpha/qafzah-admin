@@ -1,9 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { Box, alpha, lighten, useTheme } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
+import { useAuth } from 'src/contexts/AuthContext';
 
 interface SidebarLayoutProps {
   children?: ReactNode;
@@ -11,7 +12,11 @@ interface SidebarLayoutProps {
 
 const SidebarLayout: FC<SidebarLayoutProps> = () => {
   const theme = useTheme();
-
+  const {token} = useAuth();  
+  if (!token) {
+        return <Navigate to="/login" replace />; // This line will NOT execute if token is null
+    
+  }
   return (
     <>
       <Box

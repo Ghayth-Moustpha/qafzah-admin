@@ -31,7 +31,7 @@ import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwo
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import { AssignmentInd, Logout } from '@mui/icons-material';
+import { AssignmentInd, DocumentScannerRounded, Logout } from '@mui/icons-material';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -222,7 +222,7 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/courses"
-                  startIcon={<TableChartTwoToneIcon />}
+                  startIcon={<DocumentScannerRounded />}
                 >
                   Courses List
                 </Button>

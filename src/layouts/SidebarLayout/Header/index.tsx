@@ -68,11 +68,16 @@ function Header() {
         alignItems="center"
         spacing={2}
       >
-        <HeaderMenu />
       </Stack>
       <Box display="flex" alignItems="center">
-        <HeaderButtons />
+        {
+          /*
+ <HeaderButtons />
         <HeaderUserbox />
+
+          */
+        }
+       
         <Box
           component="span"
           sx={{

@@ -12,7 +12,7 @@ function PageHeader() {
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid item>
         <Typography variant="h3" component="h3" gutterBottom>
-          Teachers List 
+          Posts List 
         </Typography>
        
       </Grid>
@@ -24,7 +24,7 @@ function PageHeader() {
           variant="contained"
           startIcon={<AddTwoToneIcon fontSize="small" />}
         >
-          Add a  New Teacher
+          Add a  New Post
         </Button>
         </Link>
       </Grid>

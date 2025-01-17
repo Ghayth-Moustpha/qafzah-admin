@@ -1,4 +1,4 @@
-export interface ITeacher {
+export interface IStudent {
     id: number;
     fname: string;
     lname: string;
@@ -6,4 +6,6 @@ export interface ITeacher {
     bio: string;
     image: string;
     title?: string;
+    active: string ; 
+    paid: number ; 
   }

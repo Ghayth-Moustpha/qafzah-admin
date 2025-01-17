@@ -115,7 +115,7 @@ const CategoryTable: FC = () => {
                 <TableCell><img src={`${API}${category.imageURL}`}  width={200}/></TableCell> 
                 
                 <TableCell align="right">
-                  <Link to ={`./edite/${category.id}`}> 
+                  <Link to ={`./edit/${category.id}`}> 
                   
                   <IconButton
                     sx={{ color: theme.palette.primary.main }}

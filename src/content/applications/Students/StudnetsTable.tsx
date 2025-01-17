@@ -21,13 +21,13 @@ import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import axiosInstance from 'src/hooks/axios';
 import { useAuth } from 'src/contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import { ITeacher } from './teacher.interface';
+import { IStudent } from './student.interface';
 
-const applyPagination = (teachers: ITeacher[], page: number, limit: number): ITeacher[] =>
+const applyPagination = (teachers: IStudent[], page: number, limit: number): IStudent[] =>
   teachers.slice(page * limit, page * limit + limit);
 
-const TeacherTable: FC = () => {
-  const [teachers, setTeachers] = useState<ITeacher[]>([]);
+const StudentTable: FC = () => {
+  const [teachers, setTeachers] = useState<IStudent[]>([]);
   const [selectedTeachers, setSelectedTeachers] = useState<number[]>([]);
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
@@ -38,7 +38,7 @@ const TeacherTable: FC = () => {
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        await axiosInstance.get('teachers').then ((res) => {
+        await axiosInstance.get('students').then ((res) => {
           setTeachers(res.data);
           console.log(res.data);
         });
@@ -150,4 +150,4 @@ const TeacherTable: FC = () => {
   );
 };
 
-export default TeacherTable;
+export default StudentTable;

@@ -21,6 +21,7 @@ import BlogsPage from './content/applications/Blogs/BlogsPage';
 import AddBlog from './content/applications/Blogs/AddBlog';
 import EditBlog from './content/applications/Blogs/EditBlog';
 import StudentsPage from './content/applications/Students/StudentsPage';
+import ConsultationsPage from './content/applications/Messages/ConsultationsPage';
 
 const Loader = (Component) => (props) =>
   (
@@ -177,6 +178,12 @@ const routes: RouteObject[] = [
         element: <EditTeacher />
       },
       ,
+      //consultations 
+      ,
+      {
+        path: 'consultations',
+        element: <ConsultationsPage />
+      },
       ,
       {
         path: 'courses',
